@@ -34,7 +34,7 @@ public class ProductoController {
         ProductoDTO dtoResponse = null;
         Producto p = service.listarPorID(idProducto);
         if(p == null) {
-            throw new ModeloNotFoundException("ID NO ENCONTRADO " + idProducto);
+            throw new ModeloNotFoundException("ID DEL PRODUCTO " + idProducto +" NO ENCONTRADO");
         }else {
             dtoResponse = modelMapper.map(p, ProductoDTO.class);
             return new ResponseEntity(dtoResponse, HttpStatus.OK);
