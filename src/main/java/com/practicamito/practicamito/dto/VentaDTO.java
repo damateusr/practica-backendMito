@@ -1,21 +1,17 @@
-package com.practicamito.practicamito.model;
+package com.practicamito.practicamito.dto;
 
-import javax.persistence.*;
+import com.practicamito.practicamito.model.DetalleVenta;
+import com.practicamito.practicamito.model.Persona;
+
 import java.time.LocalDateTime;
 
-@Entity
-public class Venta {
+public class VentaDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idVenta;
-    @Column(nullable = false)
     private LocalDateTime fecha;
-    @ManyToOne
-    @JoinColumn(name="idPersona",nullable = false,foreignKey = @ForeignKey(name="FK_PERSONA"))
     private Persona idPersona;
-    @Column(nullable = false)
     private double importe;
+    private DetalleVentaDTO detVta;
 
     public Integer getIdVenta() {
         return idVenta;
@@ -47,5 +43,13 @@ public class Venta {
 
     public void setImporte(double importe) {
         this.importe = importe;
+    }
+
+    public DetalleVentaDTO getDetVta() {
+        return detVta;
+    }
+
+    public void setDetVta(DetalleVentaDTO detVta) {
+        this.detVta = detVta;
     }
 }

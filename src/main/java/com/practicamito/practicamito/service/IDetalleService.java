@@ -1,4 +1,6 @@
 package com.practicamito.practicamito.service;
 
-public interface IDetalleService {
+import com.practicamito.practicamito.model.DetalleVenta;
+
+public interface IDetalleService extends ICRUD<DetalleVenta,Integer> {
 }

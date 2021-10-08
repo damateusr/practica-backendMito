@@ -1,4 +1,6 @@
 package com.practicamito.practicamito.service;
 
-public interface IVentaService {
+import com.practicamito.practicamito.model.Venta;
+
+public interface IVentaService extends ICRUD<Venta,Integer> {
 }
