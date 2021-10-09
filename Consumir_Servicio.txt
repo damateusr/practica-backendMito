@@ -1,0 +1,15 @@
+Realizar venta
+
+{
+	"fecha" : "2021-10-08T05:00:00.000Z",
+	"idPersona" : {
+		"nombre" : "Daniel",
+		"apellidos" : "Mateus"
+	},
+	"importe" : 200000,
+	"detVta" : {
+		"cantidad" : 5,
+        "idProducto" :
+            { "idProducto" : 1, "nombre" : "Teclado", "marca" : "HP"}
+	}
+}
