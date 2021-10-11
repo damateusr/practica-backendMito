@@ -57,12 +57,15 @@ public class VentaController {
     @PostMapping
     public ResponseEntity<VentaDTO> registar(@RequestBody VentaDTO dtoVenta) throws Exception {
 
-         //dtoResponse = null;
-        //Persona p = personaServ.listarPorID(dtoVenta.getIdPersona().getIdPersona());
         Persona p = new Persona();
-        p.setNombre(dtoVenta.getPersona().getNombre());
-        p.setApellidos(dtoVenta.getPersona().getApellidos());
-        personaServ.registrar(p);
+
+        if (dtoVenta.getPersona().getIdPersona() == null){
+            p.setNombre(dtoVenta.getPersona().getNombre());
+            p.setApellidos(dtoVenta.getPersona().getApellidos());
+            personaServ.registrar(p);
+        }else{
+            p = personaServ.listarPorID(dtoVenta.getPersona().getIdPersona());
+        }
 
         dtoVenta.getPersona().setIdPersona(p.getIdPersona());
         Venta vta = modelMapper.map(dtoVenta, Venta.class);
@@ -78,11 +81,6 @@ public class VentaController {
                 e.printStackTrace();
             }
         });
-
-        //detVta.setIdVenta(vta);
-        //DetalleVenta detVt = modelMapper.map(detVta,DetalleVenta.class);
-        //serviceDetVta.registrar(detVt);
-
 
         return new ResponseEntity(dtoResponse, HttpStatus.OK);
 
