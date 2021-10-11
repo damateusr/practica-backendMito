@@ -4,14 +4,15 @@ import com.practicamito.practicamito.model.DetalleVenta;
 import com.practicamito.practicamito.model.Persona;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class VentaDTO {
 
     private Integer idVenta;
     private LocalDateTime fecha;
-    private Persona idPersona;
+    private Persona persona;
     private double importe;
-    private DetalleVentaDTO detVta;
+    private List<DetalleVentaDTO> detVta;
 
     public Integer getIdVenta() {
         return idVenta;
@@ -29,12 +30,12 @@ public class VentaDTO {
         this.fecha = fecha;
     }
 
-    public Persona getIdPersona() {
-        return idPersona;
+    public Persona getPersona() {
+        return persona;
     }
 
-    public void setIdPersona(Persona idPersona) {
-        this.idPersona = idPersona;
+    public void setPersona(Persona persona) {
+        this.persona = persona;
     }
 
     public double getImporte() {
@@ -45,11 +46,11 @@ public class VentaDTO {
         this.importe = importe;
     }
 
-    public DetalleVentaDTO getDetVta() {
+    public List<DetalleVentaDTO> getDetVta() {
         return detVta;
     }
 
-    public void setDetVta(DetalleVentaDTO detVta) {
+    public void setDetVta(List<DetalleVentaDTO> detVta) {
         this.detVta = detVta;
     }
 }

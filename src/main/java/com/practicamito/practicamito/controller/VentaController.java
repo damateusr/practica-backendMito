@@ -60,19 +60,28 @@ public class VentaController {
          //dtoResponse = null;
         //Persona p = personaServ.listarPorID(dtoVenta.getIdPersona().getIdPersona());
         Persona p = new Persona();
-        p.setNombre(dtoVenta.getIdPersona().getNombre());
-        p.setApellidos(dtoVenta.getIdPersona().getApellidos());
+        p.setNombre(dtoVenta.getPersona().getNombre());
+        p.setApellidos(dtoVenta.getPersona().getApellidos());
         personaServ.registrar(p);
 
-        dtoVenta.getIdPersona().setIdPersona(p.getIdPersona());
+        dtoVenta.getPersona().setIdPersona(p.getIdPersona());
         Venta vta = modelMapper.map(dtoVenta, Venta.class);
         service.registrar(vta);
         VentaDTO dtoResponse = modelMapper.map(vta, VentaDTO.class);
 
-        DetalleVentaDTO detVta = dtoVenta.getDetVta();
-        detVta.setIdVenta(vta);
-        DetalleVenta detVt = modelMapper.map(detVta,DetalleVenta.class);
-        serviceDetVta.registrar(detVt);
+        List<DetalleVentaDTO> lisDetVta = dtoVenta.getDetVta();
+        lisDetVta.stream().forEach( det -> {
+            try {
+                det.setIdVenta(vta);
+                serviceDetVta.registrar( modelMapper.map(det,DetalleVenta.class) );
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+        //detVta.setIdVenta(vta);
+        //DetalleVenta detVt = modelMapper.map(detVta,DetalleVenta.class);
+        //serviceDetVta.registrar(detVt);
 
 
         return new ResponseEntity(dtoResponse, HttpStatus.OK);

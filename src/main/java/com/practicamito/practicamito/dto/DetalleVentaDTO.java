@@ -10,7 +10,7 @@ public class DetalleVentaDTO {
 
     private Integer idDetalleVenta;
     private Venta idVenta;
-    private ProductoDTO idProducto;
+    private ProductoDTO producto;
     private Integer cantidad;
 
     public Integer getIdDetalleVenta() {
@@ -29,12 +29,12 @@ public class DetalleVentaDTO {
         this.idVenta = idVenta;
     }
 
-    public ProductoDTO getIdProducto() {
-        return idProducto;
+    public ProductoDTO getProducto() {
+        return producto;
     }
 
-    public void setIdProducto(ProductoDTO idProducto) {
-        this.idProducto = idProducto;
+    public void setProducto(ProductoDTO producto) {
+        this.producto = producto;
     }
 
     public Integer getCantidad() {

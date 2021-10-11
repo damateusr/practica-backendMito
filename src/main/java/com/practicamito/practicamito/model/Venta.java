@@ -17,6 +17,7 @@ public class Venta {
     @Column(nullable = false)
     private double importe;
 
+
     public Integer getIdVenta() {
         return idVenta;
     }
