@@ -1,15 +1,29 @@
 Realizar venta
 
 {
-	"fecha" : "2021-10-08T05:00:00.000Z",
-	"idPersona" : {
-		"nombre" : "Daniel",
+	"fecha" : "2021-10-11T05:20:00.000Z",
+	"persona" : {
+		"nombre" : "Danna",
 		"apellidos" : "Mateus"
 	},
-	"importe" : 200000,
-	"detVta" : {
-		"cantidad" : 5,
-        "idProducto" :
-            { "idProducto" : 1, "nombre" : "Teclado", "marca" : "HP"}
-	}
+	"importe" : 450000,
+	"detVta" : 
+    [
+        {
+        "producto" : { 
+            "idProducto" : 1,
+            "nombre" : "Teclado",
+            "marca" : "HP"
+        },
+        "cantidad" : 2
+        },
+        {
+        "producto" : { 
+            "idProducto" : 3,
+            "nombre" : "Mouse",
+            "marca" : "HP"
+        },
+        "cantidad" : 4
+        }
+    ]
 }
